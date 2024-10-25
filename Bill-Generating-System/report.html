@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4 text-primary">Closing Report Summary</h1>
+        <div id="reportContent" class="table-responsive"></div>
+        <div class="text-center">
+            <a href="index.html" class="btn btn-secondary">Back to Order</a>
+            <button id="generateReport" class="btn btn-success">Generate Sales Report</button>
+        </div>
+    </div>
+    <script>
+        // Fetching report data from localStorage
+        window.onload = function() {
+        const reportContent = document.getElementById('reportContent');
+        const orderData = JSON.parse(localStorage.getItem('orderData')) || [];
+        let html = `
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>Product Name</th>
+                        <th>Count</th>
+                        <th>Price (₹)</th>
+                        <th>Total (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        let grandTotal = 0;
+        orderData.forEach(item => {
+            const total = item.count * item.price;
+            grandTotal += total;
+            html += `
+                <tr>
+                    <td>${item.category}</td>
+                    <td>${item.product}</td>
+                    <td>${item.count}</td>
+                    <td>${item.price.toFixed(2)}</td> <!-- Ensuring price has 2 decimal places -->
+                    <td>${total.toFixed(2)}</td> <!-- Ensuring total has 2 decimal places -->
+                </tr>
+            `;
+        });
+
+        html += `
+                </tbody>
+                <tfoot>
+                    <tr class="table-success">
+                        <td colspan="4" class="text-end"><strong>Grand Total:</strong></td>
+                        <td>${grandTotal.toFixed(2)}</td> <!-- Grand total with 2 decimal places -->
+                    </tr>
+                </tfoot>
+            </table>
+        `;
+        reportContent.innerHTML = html;
+
+        // Generate Sales Report button functionality
+        document.getElementById('generateReport').addEventListener('click', () => {
+            const salesData = JSON.stringify(orderData); // Prepare the data to pass
+            localStorage.setItem('salesData', salesData); // Store it in localStorage
+            window.open('sales_report.html', '_self'); // Open the sales report page
+        });
+    };
+
+    </script>
+</body>
+</html>

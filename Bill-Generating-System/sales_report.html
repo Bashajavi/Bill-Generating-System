@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4 text-primary">Sales Report</h1>
+        <div id="salesReportContent" class="table-responsive"></div>
+        <div class="text-center">
+            <a href="index.html" class="btn btn-secondary">Back to Order</a>
+        </div>
+    </div>
+    <script>
+        // Fetching sales report data from localStorage
+        window.onload = function() {
+            const salesReportContent = document.getElementById('salesReportContent');
+            const salesData = JSON.parse(localStorage.getItem('salesData')) || [];
+
+            // Aggregating counts and totals for each product
+            const productSummary = {};
+
+            salesData.forEach(item => {
+                const key = item.product; // Use product name as key
+                if (productSummary[key]) {
+                    productSummary[key].count += item.count; // Sum the counts
+                    productSummary[key].total += item.count * item.price; // Sum the totals
+                } else {
+                    productSummary[key] = {
+                        count: item.count,
+                        price: item.price,
+                        total: item.count * item.price
+                    };
+                }
+            });
+
+            // Building the table
+            let html = `
+                <table class="table table-hover table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Count</th>
+                            <th>Price (₹)</th>
+                            <th>Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let grandTotal = 0;
+            for (const product in productSummary) {
+                const { count, price, total } = productSummary[product];
+                grandTotal += total; // Sum up grand total
+                html += `
+                    <tr>
+                        <td>${product}</td>
+                        <td>${count}</td>
+                        <td>${price.toFixed(2)}</td> <!-- Ensuring price has 2 decimal places -->
+                        <td>${total.toFixed(2)}</td> <!-- Ensuring total has 2 decimal places -->
+                    </tr>
+                `;
+            }
+
+            html += `
+                    </tbody>
+                    <tfoot>
+                        <tr class="table-success">
+                            <td colspan="3" class="text-end"><strong>Grand Total:</strong></td>
+                            <td>${grandTotal.toFixed(2)}</td> <!-- Grand total with 2 decimal places -->
+                        </tr>
+                    </tfoot>
+                </table>
+            `;
+
+            salesReportContent.innerHTML = html;
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4 text-primary">Order Summary</h1>
+        <table id="orderTable" class="table table-hover table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Category</th>
+                    <th>Product Name</th>
+                    <th>Count</th>
+                    <th>Price (₹)</th>
+                    <th>Total (Count x Price)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dining Section -->
+                <tr class="table-primary"><td>Dining</td><td>Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>99</td><td class="total">0</td></tr>
+                <tr class="table-primary"><td>Dining</td><td>Plain Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>80</td><td class="total">0</td></tr>
+                <tr class="table-primary"><td>Dining</td><td>Egg Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>90</td><td class="total">0</td></tr>
+                <tr class="table-primary"><td>Dining</td><td>Chicken Chukka 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>100</td><td class="total">0</td></tr>    
+                <tr class="table-primary"><td>Dining</td><td>Bread Halwa 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>40</td><td class="total">0</td></tr>
+                <tr class="table-primary"><td>Dining</td><td>Bread Halwa 200 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>80</td><td class="total">0</td></tr>
+                <tr class="table-primary"><td>Dining</td><td>Water Bottle</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>20</td><td class="total">0</td></tr>
+                <tr class="table-primary"><td>Dining</td><td>Bucket Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>1350</td><td class="total">0</td></tr>
+                
+                <!-- Take Away Section -->
+                <tr class="table-secondary"><td>Take Away</td><td>Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>110</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Plain Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>90</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Egg Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>100</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Chicken Chukka 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>110</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Egg</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>10</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Bread Halwa 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>40</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Bread Halwa 200 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>80</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Water Bottle</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>20</td><td class="total">0</td></tr>
+                <tr class="table-secondary"><td>Take Away</td><td>Bucket Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>1360</td><td class="total">0</td></tr>
+                
+                <!-- Swiggy Section -->
+                <tr class="table-info"><td>Swiggy</td><td>Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>218</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Plain Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>160</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Egg Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>174</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Chicken Chukka 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>218</td><td class="total">0</td></tr>                
+                <tr class="table-info"><td>Swiggy</td><td>Bread Halwa 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>40</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Bread Halwa 200 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>80</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Water Bottle</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>29</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Egg</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>10</td><td class="total">0</td></tr>
+                <tr class="table-info"><td>Swiggy</td><td>Bucket Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>1350</td><td class="total">0</td></tr>
+
+                <!-- Zomato Section -->
+                <tr class="table-warning"><td>Zomato</td><td>Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>201</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Plain Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>147.40</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Egg Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>160.80</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Chicken Chukka 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>201</td><td class="total">0</td></tr>                
+                <tr class="table-warning"><td>Zomato</td><td>Bread Halwa 100 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>40</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Bread Halwa 200 ml</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>80</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Egg</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>10</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Water Bottle</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>26.80</td><td class="total">0</td></tr>
+                <tr class="table-warning"><td>Zomato</td><td>Bucket Chicken Biriyani</td><td><input type="number" class="form-control count" min="0" value="0"></td><td>1350</td><td class="total">0</td></tr>
+            </tbody>
+        </table>
+
+        <div class="text-end mb-3">
+            <button class="btn btn-primary" id="calculate">Calculate</button>
+            <button class="btn btn-success" id="generateReport">Generate Closing Report</button>
+        </div>
+        <div id="finalTotal" class="text-center fs-4 fw-bold text-danger"></div>
+    </div>
+    <script>
+        document.getElementById('calculate').onclick = function() {
+            const rows = document.querySelectorAll('#orderTable tbody tr');
+            let grandTotal = 0;
+
+            rows.forEach(row => {
+                const count = parseFloat(row.querySelector('.count').value) || 0; // Ensure count is a number
+                const price = parseFloat(row.querySelector('td:nth-child(4)').innerText) || 0; // Ensure price is a number
+                const total = count * price;
+                row.querySelector('.total').innerText = total.toFixed(2); // Show total with 2 decimal places
+
+                grandTotal += total;
+            });
+
+            document.getElementById('finalTotal').innerText = 'Grand Total: ₹' + grandTotal.toFixed(2); // Show grand total with 2 decimal places
+        };
+
+        document.getElementById('generateReport').onclick = function() {
+            const orderData = [];
+            const rows = document.querySelectorAll('#orderTable tbody tr');
+
+            rows.forEach(row => {
+                const category = row.cells[0].innerText;
+                const product = row.cells[1].innerText;
+                const count = row.querySelector('.count').value;
+                const price = row.querySelector('td:nth-child(4)').innerText;
+
+                if (count > 0) {
+                    orderData.push({ category, product, count: Number(count), price: Number(price) });
+                }
+            });
+
+            // Store the order data in localStorage
+            localStorage.setItem('orderData', JSON.stringify(orderData));
+
+            // Redirect to the report page
+            window.location.href = 'report.html';
+        };
+    </script>
+</body>
+</html>
